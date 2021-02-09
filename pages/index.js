@@ -9,6 +9,7 @@ import Input from '../src/components/Input'
 import Button from '../src/components/Button'
 import QuizContainer from '../src/components/QuizContainer'
 import Form from '../src/components/Form'
+import Logo from '../src/components/QuizLogo'
 
 export default function Home() {
   const router = useRouter()
@@ -37,7 +38,7 @@ export default function Home() {
    <>
    
     <QuizBackground backgroundImage={db.bg}>
-      
+      <Logo />
     <QuizContainer>
       <Widget>
       <Widget.Header>
@@ -49,10 +50,9 @@ export default function Home() {
             <Input 
               onChange={handleChange}
               placeholder='Diz aí seu nome'
-              value={name}
-              
-              
+              value={name}              
               />
+              
             <Button type='submit' disabled={name.length === 0}>
               Jogar {name}
 

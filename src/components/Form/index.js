@@ -17,12 +17,12 @@ display:flex;
 `
 
 
-function Form({onSubmit}){
+function Form({onSubmit, children}){
     
   
     return (
         <FormArea onSubmit={onSubmit}>
-            
+            {children}
 
         </FormArea>
     )
