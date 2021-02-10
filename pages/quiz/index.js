@@ -12,13 +12,17 @@ import QuizContainer from '../../src/components/QuizContainer'
 import Logo from '../../src/components/QuizLogo'
 import LoadingWidget from '../../src/components/LoadingWidget'
 
-function QuestionWidget({question, totalQuestions, questionIndex}){
+function QuestionWidget({question, totalQuestions, questionIndex, onSubmit, onChange}){
   const questionId = `question_${questionIndex}`
+  const [selectedAlternative, setSelectedAlternative] = React.useState()
+  const isCorrect = selectedAlternative === question.answer
+  const  [isFormSubmited, setIsFormSubmited ] = React.useState(false)
+  const hasAlternativeSelected = selectedAlternative !== undefined
 
   return (
     <Widget>
     <Widget.Header>
-          <h3>Pergunta {questionIndex} de {totalQuestions}</h3>
+          <h3>Pergunta {questionIndex+1} de {totalQuestions}</h3>
 
         </Widget.Header>
      
@@ -35,56 +39,110 @@ function QuestionWidget({question, totalQuestions, questionIndex}){
         <h2 style={{color:'black'}}>
                {question.title}
             </h2>
-            <form >
+            <form  onSubmit={(event) => {
+              event.preventDefault()
+              setIsFormSubmited(true)
+              setTimeout(() =>{
+                onSubmit()
+                setIsFormSubmited(false)
+                setSelectedAlternative(undefined)
+              }, 3 * 1000)
+              
+            }}>
             {question.alternatives.map((item, index) =>   
             {
-
+              const alternativeId = `alternative__${index}`
              
               return(
 
-              <Widget.Topic as='label' htmlFor={questionId}>
+              <Widget.Topic as='label'  key={alternativeId} htmlFor={alternativeId}>
             
-              <input id={index} type='radio' name={questionId} />
+              <input  id={alternativeId}
+                     
+                      onChange={() => {
+                        setSelectedAlternative(index)
+                      }}
+                      name={questionId}
+                      type='radio'
+                      
+                      />
                   {item} 
               </Widget.Topic>
               )
 
             })}
+            <Button type='submit' disabled={!hasAlternativeSelected}>
+                Confirmar
+            </Button>
+            {isFormSubmited && isCorrect && <p>Parabéns!</p>}
+            {isFormSubmited && !isCorrect && <p>Errou!</p>}
             </form>
             
 
-            <Button>
-                Confirmar
-            </Button>
       </Widget.Content>
     </Widget>
   )
 }
 
+const screenStates = {
+  quiz:'QUIZ',
+  loading:'LOADING',
+  result:'RESULT'
+}
 
 
 
 
 function QuizPage(){
-  const questionIndex = 1
+  const [screenState, setScreenState] = React.useState(screenStates.loading)
+  const [questionIndex, setquestionIndex] = React.useState(0)
   const question = db.questions[questionIndex]
   const totalQuestions = db.questions.length
+
+ 
+
+  React.useEffect(() =>{
+    
+    setTimeout(() =>{
+      setScreenState(screenStates.quiz)
+  
+    }, 1*2000)
+
+  }, [])
+
+  function handleSubmit(){
+    questionIndex !== db.questions.length? setquestionIndex(questionIndex+1):null
+    
+  }
+
+  function handleChange(){
+    console.log(setSelectedAlternative())
+  }
 
     return (
     
               
               <QuizBackground backgroundImage={db.bg}>
-                <Logo/>
+                
       <QuizContainer>
-    
-       <QuestionWidget 
-        question = {question} 
-        totalQuestions = {totalQuestions}
-        questionIndex={questionIndex}
-        /> 
-        <LoadingWidget />
+      <Logo/>
+      {screenState === screenStates.quiz && (
+          <QuestionWidget 
+          question = {question} 
+          totalQuestions = {totalQuestions}
+          questionIndex={questionIndex}
+          onSubmit={handleSubmit}
+          onChange={handleChange}
+          /> 
+
+      )}
+
+      {questionIndex === totalQuestions[totalQuestions-1] && ScreenState === screenStates.result && <div>Seu resultado é...</div>}
+       
+       
   
-        <Footer/>
+      {screenState === screenStates.loading &&  <LoadingWidget />}
+      {screenState === screenStates.result &&  <div>Seu resultado é...</div>}
       </QuizContainer>
       <GitHubCorner />
       </QuizBackground>
