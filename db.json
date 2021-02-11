@@ -1,5 +1,6 @@
 {
     "bg": "https://i.pinimg.com/originals/20/d4/16/20d416367fefa26233ce2dd5e769d702.jpg",
+    "logo": "https://fontmeme.com/permalink/210211/c5484a0fd4f4c7c86962d1d3d304d470.png",
     "title": "Quiz CSS da Alura",
     "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
     "questions": [
@@ -38,7 +39,8 @@
         "wrong": "#FF5722",
         "success": "#4CAF50",
         "white": "#fff",
-        "black": "#000000"
+        "black": "#000000",
+        "selected":"#58CCED"
       },
       "borderRadius": "4px"
     }

@@ -11,6 +11,8 @@ import QuizContainer from '../src/components/QuizContainer'
 import Form from '../src/components/Form'
 import Logo from '../src/components/QuizLogo'
 
+
+
 export default function Home() {
   const router = useRouter()
   let [name, setName] = React.useState('')
@@ -38,11 +40,13 @@ export default function Home() {
    <>
    
     <QuizBackground backgroundImage={db.bg}>
-      <Logo />
+      
     <QuizContainer>
+    
       <Widget>
+      
       <Widget.Header>
-            <h1>Naruto Quiz</h1>
+      <Logo />
 
           </Widget.Header>
         <Widget.Content> 
