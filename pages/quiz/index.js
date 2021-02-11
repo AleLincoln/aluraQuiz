@@ -12,13 +12,12 @@ import QuizContainer from '../../src/components/QuizContainer'
 import Logo from '../../src/components/QuizLogo'
 import LoadingWidget from '../../src/components/LoadingWidget'
 
-function QuestionWidget({question, totalQuestions, questionIndex, onSubmit, onChange}){
+function QuestionWidget({question, totalQuestions, questionIndex, onSubmit, addResult}){
   const questionId = `question_${questionIndex}`
-  const [selectedAlternative, setSelectedAlternative] = React.useState()
+  const [selectedAlternative, setSelectedAlternative] = React.useState(undefined)
   const isCorrect = selectedAlternative === question.answer
   const  [isFormSubmited, setIsFormSubmited ] = React.useState(false)
   const hasAlternativeSelected = selectedAlternative !== undefined
-
   return (
     <Widget>
     <Widget.Header>
@@ -49,10 +48,11 @@ function QuestionWidget({question, totalQuestions, questionIndex, onSubmit, onCh
               }, 3 * 1000)
               
             }}>
-            {question.alternatives.map((item, index) =>   
+            {question.alternatives.map((alternative, index) =>
             {
               const alternativeId = `alternative__${index}`
-             
+              const alternativeStatus = isCorrect? 'SUCCESS' : 'ERROR'
+              
               return(
 
               <Widget.Topic as='label'  key={alternativeId} htmlFor={alternativeId}>
@@ -66,7 +66,7 @@ function QuestionWidget({question, totalQuestions, questionIndex, onSubmit, onCh
                       type='radio'
                       
                       />
-                  {item} 
+                  {alternative} 
               </Widget.Topic>
               )
 
@@ -95,9 +95,12 @@ const screenStates = {
 
 function QuizPage(){
   const [screenState, setScreenState] = React.useState(screenStates.loading)
-  const [questionIndex, setquestionIndex] = React.useState(0)
+  const [currentQuestion, setCurrentQuestion] = React.useState(0)
+  const questionIndex = currentQuestion
   const question = db.questions[questionIndex]
   const totalQuestions = db.questions.length
+  const [results, setResults] = React.useState([])
+
 
  
 
@@ -111,7 +114,8 @@ function QuizPage(){
   }, [])
 
   function handleSubmit(){
-    questionIndex !== db.questions.length? setquestionIndex(questionIndex+1):null
+    const nextQuestion = questionIndex + 1
+    nextQuestion < totalQuestions? setCurrentQuestion(questionIndex+1):setScreenState(screenStates.result)
     
   }
 
@@ -136,9 +140,6 @@ function QuizPage(){
           /> 
 
       )}
-
-      {questionIndex === totalQuestions[totalQuestions-1] && ScreenState === screenStates.result && <div>Seu resultado é...</div>}
-       
        
   
       {screenState === screenStates.loading &&  <LoadingWidget />}
