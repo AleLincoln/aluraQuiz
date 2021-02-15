@@ -65,13 +65,6 @@ export default function Home() {
           </Form>
         </Widget.Content>
       </Widget>
-      <Widget>
-        <Widget.Content>
-          <p>Qualquer bagulho</p>
-
-        </Widget.Content>
-      </Widget>
-
       <Footer/>
     </QuizContainer>
       
