@@ -3,27 +3,30 @@
     "logo": "https://fontmeme.com/permalink/210211/c5484a0fd4f4c7c86962d1d3d304d470.png",
     "title": "Quiz CSS da Alura",
     "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
+    "globalQuestion":"Quem é esse personagem",
     "questions": [
       {
-        "image": "https://media.giphy.com/media/xUOxf3yDKCuwpOlT3i/giphy.gif",
+        "image": "https://imagensemoldes.com.br/wp-content/uploads/2020/05/Naruto-PNG.png",
         "title": "Como fazer um seletor por id via CSS?",
         "description": "Essa é pra aquecer",
         "answer": 2,
         "alternatives": [
-          ".elemento",
-          "*elemento",
-          "#elemento",
-          "%elemento"
+          "Rock Lee",
+          "Jiraya",
+          "Naruto",
+          "Madara"
         ]
       },
       {
-        "image": "https://media.giphy.com/media/13FrpeVH09Zrb2/giphy.gif",
+        "image": "https://i.pinimg.com/originals/f7/01/0c/f7010c159312530df9b758a30c066224.png",
         "title": "Como fazer um background gradiente com css?",
         "description": "Faz tempo em haha",
         "answer": 0,
         "alternatives": [
-           "background: linear-gradient(#e66465, #9198e5);",
-           "background: gradient(#e66465, #9198e5);"
+          "Rock Lee",
+          "Jiraya",
+          "Naruto",
+          "Madara"
         ]
       }
     ],
