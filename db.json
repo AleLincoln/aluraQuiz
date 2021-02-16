@@ -5,16 +5,17 @@
     "description": "Teste os seus conhecimentos sobre CSS e vamos ver quantos layouts você vai deixar de quebrar",
     "globalQuestion":"Quem é esse personagem",
     "questions": [
+      
       {
-        "image": "https://imagensemoldes.com.br/wp-content/uploads/2020/05/Naruto-PNG.png",
-        "title": "Como fazer um seletor por id via CSS?",
-        "description": "Essa é pra aquecer",
-        "answer": 2,
+        "image": "https://i.pinimg.com/originals/75/9c/bb/759cbb12180a4447255da3ecaf00b7e5.png",
+        "title": "Como fazer um background gradiente com css?",
+        "description": "Faz tempo em haha",
+        "answer": 0,
         "alternatives": [
-          "Rock Lee",
-          "Jiraya",
-          "Naruto",
-          "Madara"
+          "Choji",
+          "Nagato",
+          "Shikamaru",
+          "Itachi"
         ]
       },
       {
@@ -28,10 +29,83 @@
           "Naruto",
           "Madara"
         ]
+      },
+      {
+        "image": "https://officialpsds.com/imageview/7y/zj/7yzj1n_large.png?1521316545",
+        "title": "Como fazer um background gradiente com css?",
+        "description": "Faz tempo em haha",
+        "answer": 1,
+        "alternatives": [
+          "Rock Lee",
+          "Itachi",
+          "Naruto",
+          "Madara"
+        ]
+      },
+      {
+        "image": "https://i.pinimg.com/originals/b4/66/a4/b466a46006ab30c054c13e38157ea591.png",
+        "title": "Como fazer um background gradiente com css?",
+        "description": "Faz tempo em haha",
+        "answer": 3,
+        "alternatives": [
+          "Rock Lee",
+          "Itachi",
+          "Boruto",
+          "Minato"
+        ]
+      },
+      {
+        "image": "https://i.pinimg.com/originals/ba/11/c2/ba11c22ebc7ed5e127cf21821540ac92.png",
+        "title": "Como fazer um background gradiente com css?",
+        "description": "Faz tempo em haha",
+        "answer": 1,
+        "alternatives": [
+          "Rock Lee",
+          "Jiraya",
+          "Boruto",
+          "Itachi"
+        ]
+      },
+      {
+        "image": "https://i.pinimg.com/originals/7e/f3/11/7ef311f18f8afa65a053e61e84197331.png",
+        "title": "Como fazer um background gradiente com css?",
+        "description": "Faz tempo em haha",
+        "answer": 1,
+        "alternatives": [
+          "Sasuke",
+          "Nagato",
+          "Sakura",
+          "Itachi"
+        ]
+      },
+      {
+        "image": "https://i.pinimg.com/originals/e6/ad/b6/e6adb615983e46f1adb7a06d664f1c16.png",
+        "title": "Como fazer um background gradiente com css?",
+        "description": "Faz tempo em haha",
+        "answer": 2,
+        "alternatives": [
+          "Sasuke",
+          "Nagato",
+          "Shikamaru",
+          "Itachi"
+        ]
+      },
+      {
+        "image": "https://imagensemoldes.com.br/wp-content/uploads/2020/05/Naruto-PNG.png",
+        "title": "Como fazer um seletor por id via CSS?",
+        "description": "Essa é pra aquecer",
+        "answer": 2,
+        "alternatives": [
+          "Rock Lee",
+          "Jiraya",
+          "Naruto",
+          "Madara"
+        ]
       }
     ],
     "external": [
-      ""
+      "https://aluraquiz-god-of-war.vercel.app/",
+      "https://aluraquiz-god-of-war.vercel.app/"
     ],
     "theme": {
       "colors": {

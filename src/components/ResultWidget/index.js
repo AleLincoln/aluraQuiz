@@ -1,7 +1,11 @@
 import Widget from '../Widget'
 import Logo from '../QuizLogo'
+import {useRouter} from 'next/router'
 
 function ResultWidget({results}){
+    
+    const name = useRouter().query.name
+
     return (
         <Widget>
                 <Widget.Header>
@@ -12,14 +16,14 @@ function ResultWidget({results}){
                 
                 <Widget.Content>
                    <p>
-                       Você acertou {results.filter((item) => item === true).length} perguntas
+                       {name}, você acertou {results.filter((item) => item === true).length} perguntas
                    </p>
                    <ul>
                       {results.map((result, index) => {
 
                           return(
 
-                              <li>
+                              <li key={index+result}>
                                   {index+1}: {result === true? 'acerto':'errou'}
                               </li>
                              

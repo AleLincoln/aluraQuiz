@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+
 import db from '../db.json'
 import Widget from '.././src/components/Widget'
 import Footer from '.././src/components/Footer'
@@ -17,22 +17,16 @@ export default function Home() {
   const router = useRouter()
   let [name, setName] = React.useState('')
 
-
-  console.log(name)
-
   function handleSubmit(event){
     event.preventDefault()
     
     
     router.push(`/quiz?name=${name}`)
-    console.log('teste')
   }
 
 
   function handleChange(event){
-    setName(event.target.value) 
-
-    console.log(name)
+    setName(event.target.value)
   }
 
 
@@ -53,6 +47,7 @@ export default function Home() {
           <Form onSubmit={handleSubmit}>
             <Input 
               onChange={handleChange}
+              name={name}
               placeholder='Diz aí seu nome'
               value={name}              
               />
@@ -65,12 +60,28 @@ export default function Home() {
           </Form>
         </Widget.Content>
       </Widget>
+
+      <Widget>
+          <Widget.Header>
+            <h2>Quizes da galera</h2>
+          </Widget.Header>
+
+          <Widget.Content>
+                <ul>
+                  {db.external.map((item, index) => {
+                    const content = item.replace('https://', '').replace('.vercel.app/', '')
+                    return (<li key={index}><Widget.Topic href={item} target='__blank'>{content}</Widget.Topic></li>)
+                  })}
+                </ul>
+          </Widget.Content>
+
+      </Widget>
       <Footer/>
     </QuizContainer>
       
       
       
-      <GitHubCorner projectUrl="https://www.alura.com.br"/>
+      <GitHubCorner projectUrl="https://alura-quiz-pi-ochre.vercel.app/"/>
     </QuizBackground>
    
    </>

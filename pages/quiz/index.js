@@ -12,6 +12,9 @@ import LoadingWidget from '../../src/components/LoadingWidget'
 import ResultWidget from '../../src/components/ResultWidget'
 import AlternativesForm from '../../src/components/AlternativeForms'
 
+
+
+
 const QuizImg = styled.img`
     width:60%;
     object-fit:cover;
@@ -53,7 +56,7 @@ function QuestionWidget({ question, totalQuestions, questionIndex, onSubmit, add
             onSubmit()
             setMyBrightness(0)
             setIsFormSubmited(false)
-            setSelectedAlternative(undefined)
+            setSelectedAlternative()
           }, 3 * 1000)
 
         }}>
